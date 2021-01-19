@@ -28,7 +28,10 @@ jobs:
         with:
           username: fblzs
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
+
+      - name: Image Version
+        run: echo Image version ${{ github.event.inputs.imageVersion }}
+      
       - name: Push to Docker Hub
         id: docker_build
         uses: docker/build-push-action@v2
@@ -37,7 +40,7 @@ jobs:
           no-cache: true
           push: true
           tags: |
-            "fblzs/azure-csi-driver-sample:{{ github.event.inputs.imageVersion }}"
+            fblzs/azure-csi-driver-sample:{{ github.event.inputs.imageVersion }}
               
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }} github
