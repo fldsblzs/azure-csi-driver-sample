@@ -36,7 +36,8 @@ jobs:
           file: ./src/AzureCsiDriver.Application/Dockerfile
           no-cache: true
           push: true
-          tags: fblzs/azure-csi-driver-sample:{{ github.event.inputs.imageVersion }}
+          tags: |
+            "fblzs/azure-csi-driver-sample:{{ github.event.inputs.imageVersion }}"
               
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }} github
