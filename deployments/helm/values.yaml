@@ -1,0 +1,26 @@
+global:
+  namespace: 'azure-csi-driver-sample-test'
+
+app:
+  name: 'azure-csi-driver-sample-app'
+  label: 'test-app'
+  replicas: 1
+  image: 'fblzs/azure-csi-driver-sample:v1'
+  reloaderSecretName: 'application-secrets'
+  secretProviderClassName: 'application-secret-provider'
+
+svc:
+  name: 'azure-csi-driver-sample-svc'
+  selector: 'test-app'
+
+secretProvider:
+  name: 'application-secret-provider'
+  secretName: 'application-secrets'
+  # Azure Key Vault name
+  keyVaultname: ''
+  # Azure Resource Group where the Key Vault was created
+  resourceGroup: ''
+  # Id of the Azure subscription where the Resource Group was created
+  subscriptionId: ''
+  # Id of the tenant where the Azure subscription was created 
+  tenantId: ''
