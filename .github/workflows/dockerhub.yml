@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./src/AzureCsiDriver.Application
-          file: ./Dockerfile
+          file: ./src/AzureCsiDriver.Application/Dockerfile
           no-cache: true
           push: true
           tags: |
