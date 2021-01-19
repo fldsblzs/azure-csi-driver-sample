@@ -2,11 +2,6 @@ name: Publish Docker image
 
 on:
   workflow_dispatch:
-    inputs:
-      imageVersion:
-        description: 'Docker image version'     
-        required: true
-        default: 'v1'
         
 jobs:
   build_and_push:
@@ -28,9 +23,6 @@ jobs:
         with:
           username: fblzs
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Image Version
-        run: echo Image version ${{ github.event.inputs.imageVersion }}
       
       - name: Push to Docker Hub
         id: docker_build
@@ -40,7 +32,7 @@ jobs:
           no-cache: true
           push: true
           tags: |
-            fblzs/azure-csi-driver-sample:{{ github.event.inputs.imageVersion }}
+            fblzs/azure-csi-driver-sample:v1
               
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }} github
