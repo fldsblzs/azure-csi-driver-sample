@@ -1,12 +1,12 @@
 # azure-csi-driver-sample
 
-Sample application for testing Azure Key Vault integration in Kubernetes using the CSI Driver.
+Sample application for setting up Azure Key Vault integration in Kubernetes using the CSI Driver with separate namespaces and semi-automatic secret rotation.
 
 ![Publish Docker image workflow](https://github.com/fldsblzs/azure-csi-driver-sample/workflows/Publish%20Docker%20image/badge.svg)
 
 ## About
 
-This project was created to demonstrate a simple scenario for integrating [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) into Kubernetes ([Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/)). In this case the application secrets are stored in the Key Vault and being mounted into the actual pods during deployment. Automatic secret rotation after the secret was updated in the Key Vault is also handled using [Reloader](https://github.com/stakater/Reloader).
+This project was created to demonstrate a simple scenario for integrating [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) into Kubernetes ([Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/)). In this case the application secrets are stored in the Key Vault and being mounted into the actual pods during deployment. The CSI Driver and the application are deployed into separate namespaces. Automatic secret rotation after the secret was updated in the Key Vault is also handled using [Reloader](https://github.com/stakater/Reloader).
 
 ## Project structure
 
